@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Museu Online: A Diáspora Europeia e Asiática</title>
+    <style>
+        /* Importação de Fonte Elegante (Cinzel para Títulos e Montserrat para o Corpo) */
+        @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Montserrat:wght@300;400;600&display=swap');
+
+        /* Reset e Variáveis de Cores (Paleta de Lilás e Elementos Regionais) */
+        *, *::before, *::after {
+            box-sizing: border-box;
+        }
+        
+        :root {
+            --bg-color: #f3effa;           /* Lilás bem suave para o fundo geral */
+            --primary-lilas: #7d669e;      /* Lilás médio para destaques e botões */
+            --dark-lilas: #4a3b60;         /* Lilás escuro para textos institucionais e cabeçalho */
+            --light-lilas: #e6def2;        /* Lilás claro para cartões e blocos */
+            --accent-solar: #f39c12;       /* Toque solar da arte de Antonieta Feio */
+            --text-color: #2c2533;
+            --panel-bg: rgba(255, 255, 255, 0.92);
+            --transition-smooth: all 0.4s ease-in-out;
+        }
+        
+        /* Efeito de Transição Suave na Entrada da Página */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Montserrat', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            opacity: 0;
+            animation: fadeInPage 1s forwards;
+            
+            /* Ilustração Vetorial de Fundo Estilizada (Araucárias e Gralhas em tons suaves de lilás/silhueta) */
+            background-image: 
+                /* Gralha voando à direita */
+                url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='120' height='80' viewBox='0 0 120 80' opacity='0.15'><path d='M10,40 Q40,10 70,35 Q90,15 110,25 Q80,45 60,40 Q30,65 10,40 Z' fill='%237d669e'/></svg>"),
+                /* Araucárias estilizadas ao fundo inferior */
+                url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='200' height='300' viewBox='0 0 200 300' opacity='0.08'><path d='M100,280 L100,100 M100,130 Q50,110 30,80 Q70,100 100,120 M100,110 Q150,90 170,60 Q130,80 100,100 M100,160 Q40,150 20,130 Q60,140 100,150 M100,150 Q160,140 180,110 Q140,130 100,140' stroke='%234a3b60' stroke-width='6' fill='none' stroke-linecap='round'/></svg>");
+            background-repeat: no-repeat, repeat-x;
+            background-position: top 15% right 10%, bottom inset;
+            background-attachment: fixed;
+        }
+
+        @keyframes fadeInPage {
+            to { opacity: 1; }
+        }
+
+        /* Header e Banner */
+        header {
+            background: linear-gradient(135deg, var(--dark-lilas) 0%, #2e2240 100%);
+            color: #ffffff;
+            padding: 50px 20px;
+            text-align: center;
+            border-bottom: 4px solid var(--primary-lilas);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+        header h1 {
+            margin: 0;
+            font-family: 'Cinzel', serif;
+            font-size: 2.3rem;
+            letter-spacing: 2px;
+        }
+        header p {
+            margin: 15px 0 0 0;
+            font-size: 1.1rem;
+            color: var(--light-lilas);
+            font-style: italic;
+        }
+
+        /* Menu de Categorias com Botões Estilizados */
+        .category-menu {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+            margin: 30px auto;
+            max-width: 1000px;
+            padding: 0 20px;
+        }
+        .category-btn {
+            background-color: var(--panel-bg);
+            color: var(--dark-lilas);
+            border: 2px solid var(--primary-lilas);
+            padding: 12px 24px;
+            font-size: 0.95rem;
+            font-weight: 600;
+            border-radius: 30px;
+            cursor: pointer;
+            font-family: 'Montserrat', sans-serif;
+            transition: var(--transition-smooth);
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            text-decoration: none;
+            text-align: center;
+        }
+        .category-btn:hover {
+            background-color: var(--primary-lilas);
+            color: #ffffff;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 12px rgba(125, 102, 158, 0.3);
+        }
+
+        /* Container Principal */
+        .container {
+            max-width: 1100px;
+            margin: 0 auto 40px auto;
+            padding: 0 20px;
+        }
+
+        /* Seções e Salas do Museu */
+        .intro-section {
+            background: var(--panel-bg);
+            padding: 30px;
+            border-radius: 12px;
+            border-left: 6px solid var(--primary-lilas);
+            margin-bottom: 40px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.04);
+        }
+        .intro-section h2 {
+            font-family: 'Cinzel', serif;
+            color: var(--dark-lilas);
+            margin-top: 0;
+        }
+
+        .room-card {
+            background: var(--panel-bg);
+            border: 1px solid var(--light-lilas);
+            border-radius: 12px;
+            margin-bottom: 35px;
+            padding: 30px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.03);
+            transition: var(--transition-smooth);
+        }
+        .room-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 15px rgba(0,0,0,0.06);
+        }
+        .room-card h3 {
+            font-family: 'Cinzel', serif;
+            margin-top: 0;
+            font-size: 1.5rem;
+            color: var(--dark-lilas);
+            border-bottom: 2px solid var(--light-lilas);
+            padding-bottom: 10px;
+        }
+        .tag {
+            display: inline-block;
+            background-color: var(--light-lilas);
+            color: var(--dark-lilas);
+            padding: 5px 12px;
+            border-radius: 6px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+        }
+
+        .tech-list {
+            background: rgba(243, 239, 250, 0.5);
+            border: 1px dashed var(--primary-lilas);
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 20px;
+        }
+        .tech-list ul {
+            margin: 0;
+            padding-left: 20px;
+        }
+
+        /* Pavilhão de Arte - Destaque Antonieta Feio */
+        .art-pavilion {
+            background: linear-gradient(135deg, rgba(255,255,255,0.95) 0%, rgba(255,248,235,0.95) 100%);
+            border: 2px solid var(--accent-solar);
+            border-radius: 12px;
+            padding: 35px;
+            margin-top: 40px;
+            box-shadow: 0 6px 15px rgba(243, 156, 18, 0.1);
+        }
+        .art-pavilion h3 {
+            font-family: 'Cinzel', serif;
+            color: #d35400;
+            margin-top: 0;
+        }
+        .art-box {
+            background: var(--panel-bg);
+            border-left: 4px solid var(--accent-solar);
+            padding: 20px;
+            border-radius: 6px;
+            margin-top: 20px;
+            box-shadow: inset 0 0 10px rgba(0,0,0,0.02);
+        }
+
+        /* Rodapé */
+        footer {
+            background-color: var(--dark-lilas);
+            color: var(--light-lilas);
+            text-align: center;
+            padding: 35px 20px;
+            margin-top: 60px;
+            font-size: 0.85rem;
+            border-top: 4px solid var(--primary-lilas);
+        }
+
+        /* ==========================================================
+           RESPONSIVIDADE (Adaptação para PC, Tablet e Celular)
+           ========================================================== */
+        
+        /* Tablets e Telas Médias (max-width: 768px) */
+        @media (max-width: 768px) {
+            header {
+                padding: 40px 15px;
+            }
+            header h1 {
+                font-size: 1.8rem;
+            }
+            .category-menu {
+                gap: 10px;
+            }
+            .category-btn {
+                padding: 10px 20px;
+                font-size: 0.9rem;
+                flex: 1 1 calc(50% - 10px); /* Botões ocupam metade da largura no tablet */
+            }
+            .room-card, .art-pavilion {
+                padding: 20px;
+            }
+        }
+
+        /* Celulares e Telas Pequenas (max-width: 480px) */
+        @media (max-width: 480px) {
+            header h1 {
+                font-size: 1.5rem;
+                letter-spacing: 1px;
+            }
+            header p {
+                font-size: 0.95rem;
+            }
+            .category-menu {
+                flex-direction: column;
+                align-items: stretch;
+            }
+            .category-btn {
+                flex: 1 1 100%; /* Botões ocupam a largura total no celular */
+                font-size: 0.85rem;
+                padding: 12px;
+            }
+            .room-card h3 {
+                font-size: 1.25rem;
+            }
+            .container {
+                padding: 0 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Museu Virtual das Diásporas</h1>
+        <p>Memórias, Paisagens e Técnicas no Sul e Sudeste</p>
+    </header>
+
+    <!-- Menu de Categorias Solicitado -->
+    <nav class="category-menu">
+        <a href="#ala-europeia" class="category-btn">Ala Europeia</a>
+        <a href="#ala-asiatica" class="category-btn">Ala Asiática</a>
+        <a href="#tecnicas-agricolas" class="category-btn">Técnicas Agrícolas</a>
+        <a href="#galeria-arte" class="category-btn">Galeria Antonieta Feio</a>
+    </nav>
+
+    <div class="container">
+        
+        <section class="intro-section">
+            <h2>Boas-vindas ao Pavilhão Histórico</h2>
+            <p>Este espaço digital preserva e homenageia a trajetória dos imigrantes europeus e asiáticos nos séculos XIX e XX. Explore as salas usando os botões de categoria acima para entender as transformações regionais e o choque estético proposto pelas releituras artísticas.</p>
+        </section>
+
+        <main>
+            
+            <!-- Ala Europeia -->
+            <article class="room-card" id="ala-europeia">
+                <span class="tag">Ala Europeia</span>
+                <h3>Sala I: O Fluxo Europeu e a Região de Curitiba</h3>
+                <p><strong>Grupos principais:</strong> Italianos, Alemães, Poloneses e Ucranianos.</p>
+                <p>A imigração europeia redefiniu as paisagens do Sul. Poloneses e ucranianos fincaram raízes profundas na Região Metropolitana de Curitiba, modificando o ecossistema econômico através de pequenas propriedades familiares envoltas pelas matas de araucárias.</p>
+            </article>
+
+            <!-- Ala Asiática -->
+            <article class="room-card" id="ala-asiatica">
+                <span class="tag">Ala Asiática</span>
+                <h3>Sala II: A Diáspora Asiática</h3>
+                <p><strong>Grupos principais:</strong> Japoneses (A partir de 1908).</p>
+                <p>Os imigrantes japoneses trouxeram uma forte quebra nos moldes tradicionais de plantio, organizando eficientes modelos de cooperativismo e abastecimento que transformaram os eixos urbanos do Sudeste e Sul.</p>
+            </article>
+
+            <!-- Técnicas Agrícolas -->
+            <article class="room-card" id="tecnicas-agricolas">
+                <span class="tag">Inovações</span>
+                <h3>Sala III: Introdução de Novas Técnicas Agrícolas</h3>
+                <div class="tech-list">
+                    <ul>
+                        <li><strong>Cinturões Verdes:</strong> Horticultura intensiva para abastecimento de grandes cidades.</li>
+                        <li><strong>Policultura de Subsistência:</strong> Cultivo alternado de trigo, centeio e batata em pequenas glebas de terra.</li>
+                        <li><strong>Manejo Florestal e Tecnologias de Cooperativas:</strong> Organização comercial avançada.</li>
+                    </ul>
+                </div>
+            </article>
+
+            <!-- Galeria de Arte Paraense -->
+            <article class="art-pavilion" id="galeria-arte">
+                <span class="tag" style="background-color: #fff3cd; color: #856404;">Galeria de Arte Interativa</span>
+                <h3>Sala IV: O Choque de Paisagens & Antonieta Feio</h3>
+                <p>O cinza e o clima úmido das colônias de araucárias ganham uma nova perspectiva. Propomos um exercício estético de releitura usando a luminosidade radiante e as cores quentes da pintora paraense <strong>Antonieta Feio</strong>.</p>
+                
+                <div class="art-box">
+                    <h4>Proposta aos Alunos:</h4>
+                    <p>Reinterprete as colônias paranaenses substituindo o tom frio europeu pela explosão solar, aplicando amarelos profundos e laranjas vibrantes nas paisagens frias do Sul.</p>
+                </div>
+            </article>
+
+        </main>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 Museu Online das Diásporas. Projetado com identidade regional de Araucárias e Gralhas.</p>
+    </footer>
+
+</body>
+</html>
